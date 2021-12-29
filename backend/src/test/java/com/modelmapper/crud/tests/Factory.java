@@ -16,10 +16,7 @@ public class Factory {
 		Cliente cliente =  new ClienteCpf(1L, "Igor", "123", "cpf", "163.224.820-41");
 		return cliente;
 	}
-	public static Cliente AtualizaCliente() {
-		Cliente cliente = new ClienteCpf(1L, "Igor", "123", "cpf", "163.224.820-41");
-		return cliente;
-	}
+	
 	public static ClienteCpfDTO CriaClienteCpfDTO() {
 		ClienteCpfDTO clienteDTO =  new ClienteCpfDTO(null, "Igor", "123","163.224.820-41");
 		return clienteDTO;
@@ -27,6 +24,10 @@ public class Factory {
 	
 	public static ClienteDTO CriaClienteDTO() {
 		Cliente cliente =  new Cliente(1L, "Igor", "123", "cpf");
+		return new ClienteDTO(cliente);
+	}
+	public static ClienteDTO NovoClienteDTO() {
+		Cliente cliente =  new Cliente(null, "Igor", "123", "cpf");
 		return new ClienteDTO(cliente);
 	}
 	
