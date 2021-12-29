@@ -16,11 +16,15 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "tb_cliente_cnpj")
-@DiscriminatorValue("cpf")
+@DiscriminatorValue("cnpj")
 @SuperBuilder
 public class ClienteCnpj extends Cliente implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	private String cnpj;
 
+	public ClienteCnpj(Long id, String nome, String senha, String type, String cnpj) {
+		super(id, nome, senha, type);
+		this.cnpj = cnpj;
+	}
 }

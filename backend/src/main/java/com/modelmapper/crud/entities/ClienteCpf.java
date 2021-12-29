@@ -23,4 +23,8 @@ public class ClienteCpf extends Cliente implements Serializable{
 	
 	private String cpf;
 
+	public ClienteCpf(Long id, String nome, String senha, String type, String cpf) {
+		super(id, nome, senha, type);
+		this.cpf = cpf;
+	}
 }
