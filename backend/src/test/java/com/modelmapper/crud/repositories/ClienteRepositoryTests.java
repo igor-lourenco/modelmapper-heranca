@@ -12,7 +12,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.modelmapper.crud.entities.Cliente;
-import com.modelmapper.crud.entities.ClienteCpf;
+import com.modelmapper.crud.tests.Factory;
 
 @DataJpaTest
 public class ClienteRepositoryTests {
@@ -67,7 +67,7 @@ public class ClienteRepositoryTests {
 
 	@Test
 	public void insertDeveriaAutoIncrementarObjetoQuandoIdForNulo() {
-		Cliente cliente = new ClienteCpf(null, "Igor", "123", "cpf", "163.224.820-41");
+		Cliente cliente = Factory.CriaClienteCpf();
 
 		cliente = repository.save(cliente);
 

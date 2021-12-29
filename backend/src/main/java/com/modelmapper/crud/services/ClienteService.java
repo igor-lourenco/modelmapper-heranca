@@ -30,7 +30,7 @@ public class ClienteService {
 
 	@Autowired
 	private ModelMapper modelMapper;
-	
+
 	public void delete(Long id) {
 		try {
 			repository.deleteById(id);
@@ -44,17 +44,18 @@ public class ClienteService {
 	@Transactional
 	public ClienteDTO update(Long id, ClienteDTO dto) {
 		try {
-		Cliente entity = repository.getById(id);
-		// tem que passar o id no corpo da requisição
-		modelMapper.map(dto, entity);
-		entity = repository.save(entity);
-		return modelMapper.map(entity, ClienteDTO.class);
-		}catch(EntityNotFoundException e) {
+			Cliente entity = repository.getById(id);
+			// tem que passar o id no corpo da requisição
+			modelMapper.map(dto, entity);
+			entity = repository.save(entity);
+			return modelMapper.map(entity, ClienteDTO.class);
+		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException("Cliente não existe " + id);
-		}catch(MappingException e) {
+		} catch (MappingException e) {
 			throw new ResourceNotFoundException("Cliente não atualizado " + id);
 		}
 	}
+
 	@Transactional
 	public ClienteDTO insert(ClienteDTO dto) {
 		Cliente entity = new Cliente();
