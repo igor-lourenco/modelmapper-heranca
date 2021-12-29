@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.modelmapper.crud.entities.Cliente;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -24,4 +25,10 @@ public class ClienteDTO implements Serializable {
 	private Long id;
 	private String nome;
 	private String senha;
+	
+	public ClienteDTO(Cliente obj) {
+		this.id = obj.getId();
+		this.nome = obj.getNome();
+		this.senha = obj.getSenha();
+	}
 }
